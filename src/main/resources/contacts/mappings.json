@@ -1,0 +1,99 @@
+{
+  "properties": {
+    "firstName": {
+      "type": "text",
+      "fields": {
+        "exactMatch": {
+          "type": "text",
+          "analyzer": "englishExactMatchAnalyzer"
+        },
+        "shingles": {
+          "type": "text",
+          "analyzer": "englishAutocompleteShingle"
+        },
+        "keyword": {
+          "type": "keyword",
+          "ignore_above": 32765
+        }
+      },
+      "analyzer": "englishDefaultAnalyzer",
+      "search_analyzer": "englishQueryShingleAnalyzer"
+    },
+    "lastName": {
+      "type": "text",
+      "fields": {
+        "exactMatch": {
+          "type": "text",
+          "analyzer": "englishExactMatchAnalyzer"
+        },
+        "shingles": {
+          "type": "text",
+          "analyzer": "englishAutocompleteShingle"
+        },
+        "keyword": {
+          "type": "keyword",
+          "ignore_above": 32765
+        }
+      },
+      "analyzer": "englishDefaultAnalyzer",
+      "search_analyzer": "englishQueryShingleAnalyzer"
+    },
+    "email": {
+      "type": "text",
+      "fields": {
+        "exactMatch": {
+          "type": "text",
+          "analyzer": "englishExactMatchAnalyzer"
+        },
+        "shingles": {
+          "type": "text",
+          "analyzer": "englishAutocompleteShingle"
+        },
+        "keyword": {
+          "type": "keyword",
+          "ignore_above": 32765
+        }
+      },
+      "analyzer": "englishDefaultAnalyzer",
+      "search_analyzer": "englishQueryShingleAnalyzer"
+    },
+    "phone": {
+      "type": "text",
+      "fields": {
+        "exactMatch": {
+          "type": "text",
+          "analyzer": "englishExactMatchAnalyzer"
+        },
+        "shingles": {
+          "type": "text",
+          "analyzer": "englishAutocompleteShingle"
+        },
+        "keyword": {
+          "type": "keyword",
+          "ignore_above": 32765
+        }
+      },
+      "analyzer": "englishDefaultAnalyzer",
+      "search_analyzer": "englishQueryShingleAnalyzer"
+    },
+    "group": {
+      "type": "text",
+      "fields": {
+        "exactMatch": {
+          "type": "text",
+          "analyzer": "englishExactMatchAnalyzer"
+        },
+        "shingles": {
+          "type": "text",
+          "analyzer": "englishAutocompleteShingle"
+        },
+        "keyword": {
+          "type": "keyword",
+          "ignore_above": 32765
+        }
+      },
+      "analyzer": "englishDefaultAnalyzer",
+      "search_analyzer": "englishQueryShingleAnalyzer"
+    }
+  }
+}

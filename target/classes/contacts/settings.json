@@ -1,0 +1,103 @@
+{
+  "index" : {
+    "routing" : {
+      "allocation" : {
+        "include" : {
+          "_tier_preference" : "data_content"
+        }
+      }
+    },
+    "mapping" : {
+      "total_fields" : {
+        "limit" : "100000"
+      }
+    },
+    "number_of_shards" : "3",
+    "analysis" : {
+      "filter" : {
+        "autocompleteFilter" : {
+          "type" : "edge_ngram",
+          "min_gram" : "2",
+          "max_gram" : "20"
+        },
+        "englishStemmer" : {
+          "type" : "stemmer",
+          "language" : "english"
+        },
+        "autocompleteShingleFilter" : {
+          "max_shingle_size" : "3",
+          "min_shingle_size" : "2",
+          "output_unigrams_if_no_shingles" : "true",
+          "output_unigrams" : "false",
+          "type" : "shingle",
+          "filler_token" : ""
+        },
+        "queryShingleFilter" : {
+          "max_shingle_size" : "4",
+          "min_shingle_size" : "2",
+          "type" : "shingle",
+          "filler_token" : ""
+        },
+        "englishStopwords" : {
+          "type" : "stop",
+          "stopwords" : [
+            "_english_"
+          ]
+        }
+      },
+      "analyzer" : {
+        "englishAutocompleteShingle" : {
+          "filter" : [
+            "lowercase",
+            "englishStopwords",
+            "englishStemmer",
+            "autocompleteShingleFilter"
+          ],
+          "type" : "custom",
+          "tokenizer" : "standard"
+        },
+        "uaxUrlEmailAnalyzer" : {
+          "tokenizer" : "uax_url_email"
+        },
+        "englishQueryShingleAnalyzer" : {
+          "filter" : [
+            "lowercase",
+            "englishStopwords",
+            "englishStemmer",
+            "queryShingleFilter"
+          ],
+          "type" : "custom",
+          "tokenizer" : "standard"
+        },
+        "englishDefaultAnalyzer" : {
+          "filter" : [
+            "lowercase",
+            "englishStopwords",
+            "englishStemmer"
+          ],
+          "type" : "custom",
+          "tokenizer" : "standard"
+        },
+        "englishAutocomplete" : {
+          "filter" : [
+            "lowercase",
+            "englishStopwords",
+            "autocompleteFilter",
+            "englishStemmer"
+          ],
+          "type" : "custom",
+          "tokenizer" : "standard"
+        },
+        "englishExactMatchAnalyzer" : {
+          "filter" : [
+            "lowercase",
+            "englishStopwords"
+          ],
+          "type" : "custom",
+          "tokenizer" : "standard"
+        }
+      }
+    },
+    "number_of_replicas" : "2"
+  }
+}
